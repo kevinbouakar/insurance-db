@@ -1,18 +1,14 @@
 <?php 
-    session_start();
-    
+    session_start(); 
+    include("./config/database.php");
+    include("./includes/header.php");
 ?>
+<link rel="stylesheet" href="./assets/css/index.css">
+<div class="loginForm">
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+        
+    </form>
+</div>
+<?php echo "<b>$message<b>";?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <title>Circo Insurance - Welcome</title>
-</head>
-<body>
-    Welcome to my InsuranceDB
-</body>
-</html>
+<?php include("./includes/footer.php"); ?>

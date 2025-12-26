@@ -1,7 +1,14 @@
+/*
+    Background: #EBF4DD
+    Primary text: #3B4953
+    Secondary text / subtitles: #5A7863
+    Buttons / highlights: #90AB8B
+    Borders / dividers / alternative backgrounds: #5A7863 with 10–20% opacity over #EBF4DD
+*/
+
 html {
-    background-color: #3E505B;
+    background-color: #EBF4DD;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
-    color: white;
+    color: #3B4953;
 }
-
