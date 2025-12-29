@@ -60,9 +60,8 @@
         }
     }
 </style>
-
 <footer>
-    <img src="/assets/images/logo.png" alt="Circo Insurance Logo">
+    <img src="/assets/images/logo-transparent.png" alt="Circo Insurance Logo">
     
     <div class="socialLinks">
         <ul>
@@ -82,3 +81,5 @@
     </address>
 </footer>
 <p class="footer-bottom">All Rights Reserved - Circo Insurance 2025</p>
+</body>
+</html>

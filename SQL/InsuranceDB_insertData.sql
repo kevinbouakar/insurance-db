@@ -16,27 +16,6 @@ INSERT INTO Agent (agent_name, agent_email, agent_phone) VALUES
 ('Michelle Moore', 'michelle.m@insurance.com', '555-0112'),
 ('Steven Clark', 'steven.c@insurance.com', '555-0113');
 
--- Insert Customers
-INSERT INTO Customer (customer_name, customer_email, customer_phone, customer_address, Agent_agent_id) VALUES
-('Alice Anderson', 'alice.a@email.com', '555-1001', '123 Main St, Beirut', 1),
-('Bob Baker', 'bob.b@email.com', '555-1002', '456 Oak Ave, Jounieh', 1),
-('Carol Carter', 'carol.c@email.com', '555-1003', '789 Pine Rd, Tripoli', 2),
-('Dan Davis', 'dan.d@email.com', '555-1004', '321 Elm St, Sidon', 2),
-('Eve Evans', 'eve.e@email.com', '555-1005', '654 Maple Dr, Tyre', 3),
-('Frank Foster', 'frank.f@email.com', '555-1006', '987 Cedar Ln, Byblos', 3),
-('Grace Green', 'grace.g@email.com', '555-1007', '147 Birch Ct, Baalbek', 4),
-('Henry Harris', 'henry.h@email.com', '555-1008', '258 Spruce Way, Zahle', 4),
-('Iris Irwin', 'iris.i@email.com', '555-1009', '369 Willow Pl, Aley', 5),
-('Jack Johnson', 'jack.j@email.com', '555-1010', '741 Ash Blvd, Bcharre', 5),
-('Kelly King', 'kelly.k@email.com', '555-1011', '852 Palm Ave, Jbeil', 6),
-('Leo Lewis', 'leo.l@email.com', '555-1012', '963 Vine St, Anjar', 6),
-('Maria Martinez', 'maria.m@email.com', '555-1013', '159 Rose Ln, Broummana', 7),
-('Noah Nelson', 'noah.n@email.com', '555-1014', '267 Tulip Dr, Deir el Qamar', 7),
-('Olivia Owen', 'olivia.o@email.com', '555-1015', '378 Lily Rd, Faraya', 8),
-('Peter Parker', 'peter.p@email.com', '555-1016', '489 Daisy Ct, Batroun', 8),
-('Quinn Roberts', 'quinn.r@email.com', '555-1017', '591 Orchid Way, Ehden', 9),
-('Rita Ross', 'rita.r@email.com', '555-1018', '612 Jasmine Pl, Kfardebian', 9);
-
 -- Insert Policy Types
 INSERT INTO Policy (policy_type, policy_cost, policy_durationMonths) VALUES
 ('Car Insurance', 500.00, 12),

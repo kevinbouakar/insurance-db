@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
     <title>Circo Insurance</title>
     <style>
         body {
@@ -54,14 +54,12 @@
 <body>
 <header>
     <ul>
-        <li><img src="/assets/images/logo.png" width="60" height="60" alt="Logo"></li>
-        <li><a href="/dashboard.php">Dashboard</a></li>
-        <li><a href="/customers.php">Customers</a></li>
-        <li><a href="/policies.php">Policies</a></li>
-        <li><a href="/dashboard.php">Register</a></li>
+        <li><img src="../assets/images/logo.png" width="60" height="60" alt="Logo"></li>
+        <li><a href="../dashboard.php">Dashboard</a></li>
+        <li><a href="../customers.php">Customers</a></li>
+        <li><a href="../policies.php">Policies</a></li>
+        <li><a href="../register.php">Register</a></li>
         <li class="separator">|</li>
-        <li><a href="/dashboard.php">Logout</a></li>
+        <li><a href="../logout.php">Logout</a></li>
     </ul>
 </header>
-</body>
-</html>

@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
 		  `customer_id` INT NOT NULL AUTO_INCREMENT,
 		  `customer_name` VARCHAR(100) NOT NULL,
 		  `customer_email` VARCHAR(100) NOT NULL,
+		  `customer_password` VARCHAR(255) NOT NULL,
 		  `customer_phone` VARCHAR(20) NOT NULL,
 		  `customer_address` VARCHAR(255) NULL,
 		  `Agent_agent_id` INT NOT NULL,

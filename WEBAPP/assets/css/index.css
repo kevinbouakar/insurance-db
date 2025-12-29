@@ -12,3 +12,77 @@ html {
     font-weight: 400;
     color: #3B4953;
 }
+
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #EBF4DD;
+    color: #3B4953;
+}
+
+.loginForm {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginForm form {
+    background: #ffffff;
+    width: 320px;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #90AB8B;
+    box-shadow: 0 12px 30px rgba(59, 73, 83, 0.15);
+}
+
+.loginForm label {
+    font-size: 0.9rem;
+    color: #3B4953;
+}
+
+.loginForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 14px;
+    border: 1px solid #90AB8B;
+    border-radius: 8px;
+    background: #EBF4DD;
+    color: #3B4953;
+}
+
+.loginForm input:focus {
+    outline: none;
+    border-color: #5A7863;
+    background: #ffffff;
+}
+
+.loginForm button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 8px;
+    background: #5A7863;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.loginForm button:hover {
+    background: #3B4953;
+}
+
+.loginForm p {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #5A7863;
+}
+
+

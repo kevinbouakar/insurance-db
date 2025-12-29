@@ -1,10 +1,8 @@
 USE `InsuranceDB`;
 
 DELIMITER $$
-
--- ==================== STORED PROCEDURES ====================
-
 -- 1. Search customers by filters (phone, email, name)
+-- You can search for a customer only by phone nb or email or cust name.
 CREATE PROCEDURE sp_SearchCustomers(
     IN p_search_term VARCHAR(100)
 )
