@@ -35,54 +35,63 @@ CREATE TABLE IF NOT EXISTS `Policy` (
 		ENGINE = InnoDB;
 		SHOW WARNINGS;
 
-			CREATE TABLE IF NOT EXISTS `CustomerPolicy` (
-				  `customerpolicy_id` INT NOT NULL AUTO_INCREMENT,
-				  `customerpolicy_startDate` DATE NOT NULL,
-				  `customerpolicy_endDate` DATE NULL,
-				  `customerpolicy_status` VARCHAR(20) NOT NULL,
-				  `Customer_customer_id` INT NOT NULL,
-				  `Policy_policy_id` INT NOT NULL,
-				  PRIMARY KEY (`customerpolicy_id`),
-				  CONSTRAINT `fk_CustomerPolicy_Customer1`
-				    FOREIGN KEY (`Customer_customer_id`)
-				    REFERENCES `Customer` (`customer_id`)
-				    ON DELETE NO ACTION
-				    ON UPDATE NO ACTION,
-				  CONSTRAINT `fk_CustomerPolicy_Policy1`
-				    FOREIGN KEY (`Policy_policy_id`)
-				    REFERENCES `Policy` (`policy_id`)
-				    ON DELETE NO ACTION
-				    ON UPDATE NO ACTION)
-				ENGINE = InnoDB;
-				SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `CustomerPolicy` (
+  `customerpolicy_id` INT NOT NULL AUTO_INCREMENT,
+  `customerpolicy_startDate` DATE NOT NULL,
+  `customerpolicy_endDate` DATE NULL,
+  `customerpolicy_status` VARCHAR(20) NOT NULL,
+  `Customer_customer_id` INT NOT NULL,
+  `Policy_policy_id` INT NOT NULL,
+  PRIMARY KEY (`customerpolicy_id`),
+  CONSTRAINT `fk_CustomerPolicy_Customer1`
+    FOREIGN KEY (`Customer_customer_id`)
+    REFERENCES `Customer` (`customer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_CustomerPolicy_Policy1`
+    FOREIGN KEY (`Policy_policy_id`)
+    REFERENCES `Policy` (`policy_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+SHOW WARNINGS;
 
-				CREATE TABLE IF NOT EXISTS `Payment` (
-					  `payment_id` INT NOT NULL AUTO_INCREMENT,
-					  `payment_amount` DECIMAL(10,2) NOT NULL,
-					  `payment_date` DATE NOT NULL,
-					  `payment_method` VARCHAR(50) NULL,
-					  `CustomerPolicy_customerpolicy_id` INT NOT NULL,
-					  PRIMARY KEY (`payment_id`),
-					  CONSTRAINT `fk_Payment_CustomerPolicy1`
-					    FOREIGN KEY (`CustomerPolicy_customerpolicy_id`)
-					    REFERENCES `CustomerPolicy` (`customerpolicy_id`)
-					    ON DELETE NO ACTION
-					    ON UPDATE NO ACTION)
-					ENGINE = InnoDB;
-					SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `Payment` (
+	`payment_id` INT NOT NULL AUTO_INCREMENT,
+	`payment_amount` DECIMAL(10,2) NOT NULL,
+	`payment_date` DATE NOT NULL,
+	`payment_method` VARCHAR(50) NULL,
+	`CustomerPolicy_customerpolicy_id` INT NOT NULL,
+	PRIMARY KEY (`payment_id`),
+	CONSTRAINT `fk_Payment_CustomerPolicy1`
+   FOREIGN KEY (`CustomerPolicy_customerpolicy_id`)
+   REFERENCES `CustomerPolicy` (`customerpolicy_id`)
+   ON DELETE NO ACTION
+   ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+SHOW WARNINGS;
 
-					CREATE TABLE IF NOT EXISTS `Claim` (
-						  `claim_id` INT NOT NULL AUTO_INCREMENT,
-						  `claim_date` DATE NOT NULL,
-						  `claim_amount` DECIMAL(10,2) NOT NULL,
-						  `claim_status` VARCHAR(20) NOT NULL,
-						  `claim_description` TEXT NULL,
-						  `CustomerPolicy_customerpolicy_id` INT NOT NULL,
-						  PRIMARY KEY (`claim_id`),
-						  CONSTRAINT `fk_Claim_CustomerPolicy1`
-						    FOREIGN KEY (`CustomerPolicy_customerpolicy_id`)
-						    REFERENCES `CustomerPolicy` (`customerpolicy_id`)
-						    ON DELETE NO ACTION
-						    ON UPDATE NO ACTION)
-						ENGINE = InnoDB;
-						SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `Claim` (
+		  `claim_id` INT NOT NULL AUTO_INCREMENT,
+		  `claim_date` DATE NOT NULL,
+		  `claim_amount` DECIMAL(10,2) NOT NULL,
+		  `claim_status` VARCHAR(20) NOT NULL,
+		  `claim_description` TEXT NULL,
+		  `CustomerPolicy_customerpolicy_id` INT NOT NULL,
+		PRIMARY KEY (`claim_id`),
+		CONSTRAINT `fk_Claim_CustomerPolicy1`
+	   	FOREIGN KEY (`CustomerPolicy_customerpolicy_id`)
+	   	REFERENCES `CustomerPolicy` (`customerpolicy_id`)
+	   	ON DELETE NO ACTION
+	   	ON UPDATE NO ACTION)
+	ENGINE = InnoDB;
+	SHOW WARNINGS;
+
+CREATE TABLE IF NOT EXISTS `Staff` (
+    staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    staff_email VARCHAR(100) NOT NULL UNIQUE,
+    staff_password VARCHAR(255) NOT NULL,
+    staff_name VARCHAR(100) NOT NULL
+);
+ENGINE = InnoDB;
+SHOW WARNINGS;

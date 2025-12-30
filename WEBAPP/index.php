@@ -12,28 +12,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($email === '' || $password === '') {
         $message = "All fields are required.";
     } else {
-        $passwordHash = password_hash($password,PASSWORD_DEFAULT);
-        // fetch hashed password and customer id from Customer table
-        $stmt = mysqli_prepare($conn, "SELECT customer_email, customer_password FROM customer WHERE customer_email = ?");
+        // STAFF login only
+        $stmt = mysqli_prepare(
+            $conn,
+            "SELECT staff_email, staff_password, staff_name
+             FROM Staff 
+             WHERE staff_email = ?"
+        );
+
         mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
 
-        // bind results to variables
-        mysqli_stmt_bind_result($stmt, $dbEmail, $dbPasswordHash);
-        mysqli_stmt_fetch($stmt);
+        if (mysqli_stmt_num_rows($stmt) === 1) {
+            mysqli_stmt_bind_result($stmt, $dbEmail,$dbPasswordHash, $dbName);
+            mysqli_stmt_fetch($stmt);
 
-        if (password_verify($password, $dbPasswordHash)) {
-            $_SESSION['user_email'] = $dbEmail;
-            header("Location: customers.php");
-            exit;   
+            if (password_verify($password, $dbPasswordHash)) {
+                $_SESSION['staff_email'] = $dbEmail;
+                $_SESSION['staff_name'] = $dbName;
+                header("Location: customers.php");
+                exit;
+            } else {
+                $message = "Invalid staff credentials!";
+            }
         } else {
-            $message = "Invalid email or password.";
-        } 
+            $message = "No staff credentials found!.";
+        }
+
         mysqli_stmt_close($stmt);
     }
 }
 ?>
+
 <link rel="stylesheet" href="./assets/css/index.css">
 
 <div class="loginForm">

@@ -1,7 +1,7 @@
 USE `InsuranceDB`;
 
 -- Insert Agents
-INSERT INTO Agent (agent_name, agent_email, agent_phone) VALUES
+INSERT INTO agent (agent_name, agent_email, agent_phone) VALUES
 ('John Smith', 'john.smith@insurance.com', '555-0101'),
 ('Sarah Johnson', 'sarah.j@insurance.com', '555-0102'),
 ('Mike Brown', 'mike.brown@insurance.com', '555-0103'),
@@ -17,7 +17,7 @@ INSERT INTO Agent (agent_name, agent_email, agent_phone) VALUES
 ('Steven Clark', 'steven.c@insurance.com', '555-0113');
 
 -- Insert Policy Types
-INSERT INTO Policy (policy_type, policy_cost, policy_durationMonths) VALUES
+INSERT INTO policy (policy_type, policy_cost, policy_durationMonths) VALUES
 ('Car Insurance', 500.00, 12),
 ('Health Insurance', 1200.00, 12),
 ('Home Insurance', 800.00, 12),
@@ -33,7 +33,7 @@ INSERT INTO Policy (policy_type, policy_cost, policy_durationMonths) VALUES
 ('Earthquake Insurance', 1100.00, 12);
 
 -- Insert Customer Policies
-INSERT INTO CustomerPolicy (customerpolicy_startDate, customerpolicy_endDate, customerpolicy_status, Customer_customer_id, Policy_policy_id) VALUES
+INSERT INTO customerpolicy (customerpolicy_startDate, customerpolicy_endDate, customerpolicy_status, Customer_customer_id, Policy_policy_id) VALUES
 ('2024-01-15', '2025-01-15', 'Active', 1, 1),
 ('2024-02-01', '2025-02-01', 'Active', 2, 2),
 ('2024-03-10', '2025-03-10', 'Active', 3, 3),
@@ -54,7 +54,7 @@ INSERT INTO CustomerPolicy (customerpolicy_startDate, customerpolicy_endDate, cu
 ('2024-12-21', '2025-12-21', 'Active', 18, 13);
 
 -- Insert Payments
-INSERT INTO Payment (payment_amount, payment_date, payment_method, CustomerPolicy_customerpolicy_id) VALUES
+INSERT INTO payment (payment_amount, payment_date, payment_method, CustomerPolicy_customerpolicy_id) VALUES
 (500.00, '2024-01-15', 'Credit Card', 1),
 (1200.00, '2024-02-01', 'Bank Transfer', 2),
 (800.00, '2024-03-10', 'Cash', 3),
@@ -74,7 +74,7 @@ INSERT INTO Payment (payment_amount, payment_date, payment_method, CustomerPolic
 (1100.00, '2024-12-21', 'Credit Card', 18);
 
 -- Insert Claims
-INSERT INTO Claim (claim_date, claim_amount, claim_status, claim_description, CustomerPolicy_customerpolicy_id) VALUES
+INSERT INTO claim (claim_date, claim_amount, claim_status, claim_description, CustomerPolicy_customerpolicy_id) VALUES
 ('2024-03-20', 2500.00, 'Approved', 'Car accident damage', 1),
 ('2024-04-15', 5000.00, 'Pending', 'Medical surgery expenses', 2),
 ('2024-05-10', 15000.00, 'Approved', 'House fire damage', 3),
@@ -90,3 +90,11 @@ INSERT INTO Claim (claim_date, claim_amount, claim_status, claim_description, Cu
 ('2024-12-16', 500.00, 'Approved', 'Eye surgery', 15),
 ('2024-12-19', 25000.00, 'Pending', 'Long-term disability claim', 16),
 ('2024-12-21', 18000.00, 'Approved', 'Earthquake damage to home', 18);
+
+-- Insert Staff Account
+INSERT INTO staff (staff_email, staff_password, staff_name)
+VALUES (
+  'admin@circo.com',
+  '$2y$12$8.wyZiS21KqXXWV2DkRl6..ViBT0yaHWPp4cApBSuxmFYZHKJKKKm',
+  'System Admin'
+);

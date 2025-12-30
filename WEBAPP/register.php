@@ -3,6 +3,10 @@ session_start();
 require_once "./config/database.php";
 include("./includes/header.php");
 
+if (!isset($_SESSION['staff_email'])) {
+    header("Location: index.php");
+    exit;
+}
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

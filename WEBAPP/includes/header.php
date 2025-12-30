@@ -59,6 +59,7 @@
         <li><a href="../customers.php">Customers</a></li>
         <li><a href="../policies.php">Policies</a></li>
         <li><a href="../register.php">Register</a></li>
+        <li><a href="../tools.php">Tools</a></li>
         <li class="separator">|</li>
         <li><a href="../logout.php">Logout</a></li>
     </ul>
