@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS `Customer` (
 		  `customer_id` INT NOT NULL AUTO_INCREMENT,
 		  `customer_name` VARCHAR(100) NOT NULL,
 		  `customer_email` VARCHAR(100) NOT NULL,
-		  `customer_password` VARCHAR(255) NOT NULL,
 		  `customer_phone` VARCHAR(20) NOT NULL,
 		  `customer_address` VARCHAR(255) NULL,
 		  `Agent_agent_id` INT NOT NULL,
@@ -87,11 +86,12 @@ CREATE TABLE IF NOT EXISTS `Claim` (
 	ENGINE = InnoDB;
 	SHOW WARNINGS;
 
-CREATE TABLE IF NOT EXISTS `Staff` (
-    staff_id INT AUTO_INCREMENT PRIMARY KEY,
-    staff_email VARCHAR(100) NOT NULL UNIQUE,
+CREATE TABLE IF NOT EXISTS staff (
+    staff_email VARCHAR(100) NOT NULL UNIQUE PRIMARY KEY,
     staff_password VARCHAR(255) NOT NULL,
-    staff_name VARCHAR(100) NOT NULL
-);
-ENGINE = InnoDB;
+    staff_name VARCHAR(100) NOT NULL,
+    staff_role VARCHAR(10) NOT NULL
+) ENGINE=InnoDB;
 SHOW WARNINGS;
+
+

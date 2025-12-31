@@ -55,7 +55,9 @@
 <header>
     <ul>
         <li><img src="../assets/images/logo.png" width="60" height="60" alt="Logo"></li>
-        <li><a href="../dashboard.php">Dashboard</a></li>
+        <?php if ($_SESSION['staff_role'] === 'Admin'): ?>
+            <li><a href="../dashboard.php">Dashboard</a></li>
+        <?php endif; ?>
         <li><a href="../customers.php">Customers</a></li>
         <li><a href="../policies.php">Policies</a></li>
         <li><a href="../register.php">Register</a></li>

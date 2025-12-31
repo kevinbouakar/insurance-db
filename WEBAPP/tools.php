@@ -100,7 +100,7 @@ th { background:#90AB8B; color:#fff; }
 
 <div class="container">
 <h1>Staff Tools</h1>
-<p>Welcome, <?php echo $_SESSION['staff_name']; ?></p>
+<p>Welcome, <?php echo $_SESSION['staff_role']; ?></p>
 
 <?php if($message): ?>
     <p class="message"><?= htmlspecialchars($message) ?></p>
@@ -160,7 +160,6 @@ th { background:#90AB8B; color:#fff; }
 </tr>
 <?php endforeach; ?>
 </table>
-
 </div>
 
 <?php include("./includes/footer.php"); ?>

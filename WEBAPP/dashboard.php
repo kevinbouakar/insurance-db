@@ -3,10 +3,11 @@ session_start();
 require_once "./config/database.php";
 include("./includes/header.php");
 
-if (!isset($_SESSION['staff_email'])) {
-    header("Location: index.php");
+if (!isset($_SESSION['staff_email']) || $_SESSION['staff_role'] !== 'Admin') {
+    header("Location: customers.php");
     exit;
 }
+
 
 // -----------------------
 // Fetch total counts

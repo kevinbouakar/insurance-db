@@ -2,7 +2,8 @@
 set "LAB=C:\Users\kev\Documents\Database\InsuranceDB-Project"
 set "DBApp=InsuranceDB"
 set "MYSQL_USER=root"
-set "MYSQL_PASS=admin4321"
+@REM set "MYSQL_PASS=admin4321"
+set /p MYSQL_PASS=Enter MySQL root password: 
 set "MYSQL_HOST=localhost"
 
 echo Beginning InsuranceDB setup...

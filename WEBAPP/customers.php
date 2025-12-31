@@ -26,8 +26,8 @@ if ($search !== '') {
             c.customer_phone,
             c.customer_address,
             a.agent_name
-        FROM Customer c
-        JOIN Agent a ON c.Agent_agent_id = a.agent_id
+        FROM customer c
+        JOIN agent a ON c.Agent_agent_id = a.agent_id
         ORDER BY c.customer_name
     ";
     $result = mysqli_query($conn, $query);

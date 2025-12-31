@@ -1,2 +1,1 @@
 mysql: [Warning] Using a password on the command line interface can be insecure.
-ERROR 1452 (23000) at line 36: Cannot add or update a child row: a foreign key constraint fails (`insurancedb`.`customerpolicy`, CONSTRAINT `fk_CustomerPolicy_Customer1` FOREIGN KEY (`Customer_customer_id`) REFERENCES `customer` (`customer_id`))

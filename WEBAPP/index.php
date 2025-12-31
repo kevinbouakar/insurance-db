@@ -12,12 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($email === '' || $password === '') {
         $message = "All fields are required.";
     } else {
-        // STAFF login only
         $stmt = mysqli_prepare(
             $conn,
-            "SELECT staff_email, staff_password, staff_name
-             FROM Staff 
-             WHERE staff_email = ?"
+            "SELECT staff_email, staff_password, staff_name, staff_role
+                    FROM staff
+                    WHERE staff_email = ?"
         );
 
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -25,12 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_store_result($stmt);
 
         if (mysqli_stmt_num_rows($stmt) === 1) {
-            mysqli_stmt_bind_result($stmt, $dbEmail,$dbPasswordHash, $dbName);
+            mysqli_stmt_bind_result($stmt, $dbEmail,$dbPasswordHash, $dbName, $dbRole);
             mysqli_stmt_fetch($stmt);
 
             if (password_verify($password, $dbPasswordHash)) {
                 $_SESSION['staff_email'] = $dbEmail;
-                $_SESSION['staff_name'] = $dbName;
+                $_SESSION['staff_name']  = $dbName;
+                $_SESSION['staff_role']  = $dbRole;
+
                 header("Location: customers.php");
                 exit;
             } else {
@@ -54,8 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>Password</label><br>
         <input type="password" required name="indexPassword">
         <button type="submit">Login</button>
-        <p>Don't have an account? <a href="register.php">Register</a></p>
-
         <?php if ($message): ?>
             <p><?php echo htmlspecialchars($message); ?></p>
         <?php endif; ?>

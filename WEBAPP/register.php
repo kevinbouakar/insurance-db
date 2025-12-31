@@ -12,21 +12,18 @@ $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = trim($_POST['customer_name'] ?? '');
     $email    = trim($_POST['customer_email'] ?? '');
-    $password = trim($_POST['customer_password'] ?? '');
     $phone    = trim($_POST['customer_phone'] ?? '');
     $address  = trim($_POST['customer_address'] ?? '');
     $agentId  = intval($_POST['agent_id'] ?? 0);
 
-    if ($name === '' || $email === '' || $agentId === 0 || $password === '') {
-        $message = "Name, email, password, and agent are required.";
+    if ($name === '' || $email === '' || $agentId === 0) {
+        $message = "Name, email and agent are required.";
     } else {
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT); // hash password
-
         $stmt = mysqli_prepare(
             $conn,
             "INSERT INTO Customer
-            (customer_name, customer_email, customer_password, customer_phone, customer_address, Agent_agent_id)
-            VALUES (?, ?, ?, ?, ?, ?)"
+            (customer_name, customer_email, customer_phone, customer_address, Agent_agent_id)
+            VALUES (?, ?, ?, ?, ?)"
         );
 
         mysqli_stmt_bind_param(
@@ -34,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "sssssi",
             $name,
             $email,
-            $passwordHash,
             $phone,
             $address,
             $agentId
@@ -146,9 +142,6 @@ body {
 
         <label>Email *</label>
         <input type="email" name="customer_email" required>
-
-        <label>Password *</label>
-        <input type="password" name="customer_password" required>
 
         <label>Phone</label>
         <input type="text" name="customer_phone">
